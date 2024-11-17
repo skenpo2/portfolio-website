@@ -102,6 +102,9 @@ section {
   align-items: center;
 }
 
+.online-image {
+  border-radius: 50%;
+}
 .online-icon {
   color: #dcf763;
   font-size: 0.875rem;

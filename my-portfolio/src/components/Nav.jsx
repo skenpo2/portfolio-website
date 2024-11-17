@@ -1,6 +1,8 @@
+import Navlink from './Navlink';
 import Social from './Social';
+import { navLinks } from '../data';
 
-const Nav = () => {
+const Nav = ({ currentItem, setCurrentItem }) => {
   return (
     <nav>
       <div className="nav-bar">
@@ -9,15 +11,20 @@ const Nav = () => {
         </span>
 
         <ul className="page-links">
-          <li className="active">
-            <a href="#home">Home</a>
-          </li>
-          <li className="">
-            <a href="#about">About</a>
-          </li>
-          <li className="">
-            <a href="#home">Projects</a>
-          </li>
+          {navLinks.map((link, index) => {
+            return (
+              <li
+                className={index == currentItem ? 'active' : 'link'}
+                key={link.id}
+              >
+                <Navlink
+                  {...link}
+                  index={index}
+                  setCurrentItem={setCurrentItem}
+                />
+              </li>
+            );
+          })}
         </ul>
         <Social />
       </div>
